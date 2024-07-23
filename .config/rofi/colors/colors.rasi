@@ -1,0 +1,10 @@
+/* Global properties */
+* {
+    font:                        "JetBrains Mono Nerd Font 10";
+    background:                  rgba(2, 13, 24, 0.85); 
+    background-alt:              rgba(11, 29, 40, 0.75); 
+    foreground:                  rgba(249, 235, 198, 0.95); 
+    selected:                    rgba(189, 38, 6, 0.75); 
+    active:                      rgba(249, 235, 198, 0.75); 
+    urgent:                      rgba(189, 38, 6, 0.75); 
+}

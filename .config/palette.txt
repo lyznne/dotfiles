@@ -1,0 +1,34 @@
+
+- Tailwind
+
+{ 'rich_black': { DEFAULT: '#020D18', 100: '#000305', 200: '#010509', 300: '#01080e', 400: '#020a13', 500: '#020d18', 600: '#093d71', 700: '#106ecb', 800: '#4c9ef0', 900: '#a5cff8' }, 'engineering_orange': { DEFAULT: '#BD2606', 100: '#260701', 200: '#4b0e02', 300: '#711603', 400: '#961d05', 500: '#bd2606', 600: '#f7310a', 700: '#f96547', 800: '#fb9884', 900: '#fdccc2' }, 'dutch_white': { DEFAULT: '#F9EBC6', 100: '#513e09', 200: '#a27c11', 300: '#e8b425', 400: '#f1d076', 500: '#f9ebc6', 600: '#faf0d3', 700: '#fcf4de', 800: '#fdf7e9', 900: '#fefbf4' }, 'rich_black': { DEFAULT: '#020D19', 100: '#000205', 200: '#010509', 300: '#01070e', 400: '#020a13', 500: '#020d19', 600: '#093b71', 700: '#106bcb', 800: '#4c9bf0', 900: '#a5cdf8' }, 'rich_black': { DEFAULT: '#0B1D28', 100: '#020608', 200: '#040c10', 300: '#071118', 400: '#091720', 500: '#0b1d28', 600: '#1f5170', 700: '#3285b8', 800: '#6fafd8', 900: '#b7d7eb' } }
+
+- CSV
+
+020D18,BD2606,F9EBC6,020D19,0B1D28
+
+- With #
+
+#020D18, #BD2606, #F9EBC6, #020D19, #0B1D28
+
+- Array
+
+["020D18","BD2606","F9EBC6","020D19","0B1D28"]
+
+- Object
+
+{"Rich black":"020D18","Engineering orange":"BD2606","Dutch white":"F9EBC6","Rich black 2":"020D19","Rich black 3":"0B1D28"}
+
+- Extended Array
+
+[{"name":"Rich black","hex":"020D18","rgb":[2,13,24],"cmyk":[92,46,0,91],"hsb":[210,92,9],"hsl":[210,85,5],"lab":[3,-1,-7]},{"name":"Engineering orange","hex":"BD2606","rgb":[189,38,6],"cmyk":[0,80,97,26],"hsb":[10,97,74],"hsl":[10,94,38],"lab":[42,58,53]},{"name":"Dutch white","hex":"F9EBC6","rgb":[249,235,198],"cmyk":[0,6,20,2],"hsb":[44,20,98],"hsl":[44,81,88],"lab":[93,-1,20]},{"name":"Rich black","hex":"020D19","rgb":[2,13,25],"cmyk":[92,48,0,90],"hsb":[211,92,10],"hsl":[211,85,5],"lab":[3,0,-8]},{"name":"Rich black","hex":"0B1D28","rgb":[11,29,40],"cmyk":[73,27,0,84],"hsb":[203,73,16],"hsl":[203,57,10],"lab":[10,-3,-10]}]
+
+- XML
+
+<palette>
+  <color name="Rich black" hex="020D18" r="2" g="13" b="24" />
+  <color name="Engineering orange" hex="BD2606" r="189" g="38" b="6" />
+  <color name="Dutch white" hex="F9EBC6" r="249" g="235" b="198" />
+  <color name="Rich black" hex="020D19" r="2" g="13" b="25" />
+  <color name="Rich black" hex="0B1D28" r="11" g="29" b="40" />
+</palette>

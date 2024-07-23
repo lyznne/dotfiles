@@ -43,7 +43,13 @@ x = 15
 y = 20 
 
 
-
 [bell] 
 animation = "EaseOut"
 duration =  1 
+
+[[keyboard.bindings]] 
+action = "ToggleFullscreen" 
+key  = "F11" 
+
+[scrolling]
+history = 50000
