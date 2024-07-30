@@ -1,14 +1,15 @@
 [font] 
-size = 9 
+size = 9
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "0xProto Nerd Font Mono"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "0xProto Nerd Font Mono"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "0xProto Nerd Font Mono"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "0xProto Nerd Font Mono"
+

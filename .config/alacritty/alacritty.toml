@@ -4,10 +4,10 @@
 
 #  Author:  ArcZen >_ enos muthiani
 
-#  Date:    23.07.24
+#  Date:    23.07.24 - 01:02 AM
 
 # import Fonts & Colors 
-import = ["/home/enos/.config/alacritty/colors.toml", "/home/enos/.config/alacritty/fonts.toml"]
+import = ["/home/enos/.config/alacritty/arczen-theme.toml", "/home/enos/.config/alacritty/fonts.toml"]
 
 # set reload 
 live_config_reload =  true 
@@ -43,13 +43,9 @@ x = 15
 y = 20 
 
 
+
 [bell] 
 animation = "EaseOut"
 duration =  1 
 
-[[keyboard.bindings]] 
-action = "ToggleFullscreen" 
-key  = "F11" 
 
-[scrolling]
-history = 50000

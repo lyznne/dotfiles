@@ -1,0 +1,19 @@
+[SddmGreeterTheme]
+Name=ArcZen
+Description=A R C - Z E N
+Type=sddm-theme
+Author=enos muthiani
+Copyright=(c) 2024, enos
+
+Type=sddm-theme
+Version=1.0
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=emuthiani26@gmail.com
+Theme-Id=ArcZen
+
+Theme-API=
+License=
+website=
