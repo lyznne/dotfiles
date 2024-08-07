@@ -19,7 +19,7 @@
 # Imports
 import os, socket, subprocess, re
 from libqtile import qtile, layout, bar, widget, hook
-from libqtile.config import Key, Match, Group, Screen, Drag
+from libqtile.config import Key, Match, Group, Screen, Drag, Click
 
 
 from libqtile.lazy import lazy
@@ -301,8 +301,9 @@ colors = init_colors()
 def init_widgets_defaults():
     return dict(
         font=MAIN_FONT,
-        fontsize=10,
+        fontsize=12,
         padding=3,
+        background=colors[0]
     )
 
 
@@ -312,88 +313,100 @@ widget_defaults = init_widgets_defaults()
 # -------------------------- Bar Widgets ---------------------------------------- #
 def init_bar_widgets():
     widgets_list = [
-        widget.Sep(
-            padding=6,
-            linewidth=0,
-            background=colors[6],
+        widget.Spacer(
+            length=10,
         ),
-        widget.TextBox(
-            text="  ",
-            font=MAIN_FONT,
-            fontsize="18",
-            background=colors[6],
-            foreground=colors[0],
-            mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn("rofi -show drun -modi drun")
-            },
+        # Launch
+        widget.Image(
+            filename=os.path.expanduser("~/Rice/dotfiles/.config/qtile/assets/main.svg"),
+            margin=2,
+            mouse_callbacks={"Button1": lambda: None},  # Adding a dummy callback
         ),
-        widget.TextBox(
-            text="\ue0be",
-            font="Inconsolata for powerline",
-            fontsize="33",
-            padding=0,
-            background=colors[6],
-            foreground=colors[0],
+        widget.Spacer(
+            length=10,
         ),
+        # Groups
         widget.GroupBox(
-            font="Ubuntu Nerd Font",
             fontsize=16,
-            margin_y=3,
-            margin_x=6,
-            padding_y=7,
-            padding_x=6,
-            borderwidth=4,
-            active=colors[8],
-            inactive=colors[1],
-            rounded=False,
-            highlight_color=colors[3],
+            borderwidth=0,
+            margin_y=-1,
+            margin_x=0,
+            padding_y=6,
+            padding_x=5,
+            disable_drag=False,
             highlight_method="block",
-            this_current_screen_border=colors[6],
-            block_highlight_text_color=colors[0],
+            rounded=True,
         ),
-        widget.Prompt(
-            background=colors[2],
-            foreground=colors[0],
-            font="Iosevka Nerd Font",
-            fontsize=18,
+        widget.Image(
+            filename=os.path.expanduser("~/Rice/dotfiles/.config/qtile/assets/layout.svg"),
+            margin=2,
         ),
-        widget.Chord(
-            chords_colors={
-                "launch": ("#ff0000", "#ffffff"),
-            },
-            name_transform=lambda name: name.upper(),
+        # Layout
+        widget.CurrentLayout(
+            fontsize=13,
         ),
+        # User
+        widget.TextBox (
+            text="A R C * Z E N",
+            ),
+        # Spacer to push the following widgets to the right
+        widget.Spacer(),
+        # Term 
         widget.TextBox(
-            text="\ue0be",
-            font="Inconsolata for powerline",
-            fontsize=33,
-            padding=0,
-            background=colors[0],
-            foreground=colors[2],
+            text=" ",
+            fontsize=13,
+            mouse_callbacks={"Button1": lambda: None},  # Adding a dummy callback
         ),
-        widget.WindowName(
-            font="Iosevka Nerd Font",
-            fontsize=15,
-            background=colors[2],
-            foreground=colors[0],
+        widget.Image(
+            filename=os.path.expanduser("~/Rice/dotfiles/.config/qtile/assets/terminal.svg"),
         ),
-        widget.TextBox(
-            text="\ue0be",
-            font="Inconsolata for powerline",
-            fontsize="33",
-            padding=0,
-            background=colors[2],
-            foreground=colors[0],
+        widget.Spacer(),
+        # Clipboard
+        widget.Image(
+            filename=os.path.expanduser("~/Rice/dotfiles/.config/qtile/assets/clipboard.svg"),
         ),
-        widget.Spacer(length=200),
-        widget.TextBox(
-            text="\ue0be",
-            font="Inconsolata for powerline",
-            fontsize="33",
-            padding=0,
-            background=colors[0],
-            foreground=colors[9],
+        widget.Clipboard(
+            fontsize=13,
+            mouse_callbacks={"Button1": lambda: None},  # Adding a dummy callback
         ),
+        # Net
+        widget.Net(
+            format=" {up}  {down} ",
+            prefix="k",
+        ),
+        # RAM
+        widget.Image(
+            filename=os.path.expanduser("~/Rice/dotfiles/.config/qtile/assets/misc/ram.svg"),
+        ),
+        widget.Memory(
+            format="{MemUsed: .0f}{mm}",
+            fontsize=13,
+            update_interval=5,
+        ),
+        # Volume
+        widget.Volume(
+            fontsize=13,
+            theme_path=os.path.expanduser("~Rice/dotfiles/.config/qtile/assets/volume/"),
+            emoji=True,
+        ),
+        widget.Spacer(
+            length=-5,
+        ),
+        widget.Volume(
+            fontsize=13,
+        ),
+        # Clock
+        widget.Image(
+            filename=os.path.expanduser("~/Rice/dotfiles/.config/qtile/assets/misc/clock.svg"),
+        ),
+        widget.Clock(
+            format="%I:%M %p",
+            fontsize=13,
+        ),
+        widget.Spacer(
+            length=10,
+        ),
+        # Brightness (screen)
     ]
     return widgets_list
 

@@ -182,9 +182,20 @@ style = "fg:#cba6f7 bg:#3E3D4F"
 format = '[ $symbol ($version )]($style)'
 
 [python]
+symbol = "🐍 "
+pyenv_version_name = true
+format = 'via [${symbol}${pyenv_version} (\($virtualenv\) )]($style)'
+style = "yellow bold"
+detect_extensions = ["py"]s
+
+
+[python]
 symbol = ""
 style = "fg:#cba6f7 bg:#3E3D4F"
 format = '[ $symbol ($version )]($style)'
+
+
+
 
 [ruby]
 symbol = ""

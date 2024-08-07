@@ -1,0 +1,58 @@
+{
+    "editor.formatOnPaste": true,
+    "git.autofetch": true,
+    "[markdown]": {
+        "editor.wordWrap": "on"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.autoSave": "afterDelay",
+    "workbench.productIconTheme": "material-product-icons",
+    "workbench.iconTheme": "symbols",
+    "editor.minimap.enabled": false,
+    "symbols.hidesExplorerArrows": false,
+    "workbench.sideBar.location": "right",
+    "editor.fontFamily": "0xProto Nerd Font",
+    "editor.fontLigatures": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+    "workbench.editor.enablePreview": false,
+    "javascript.referencesCodeLens.enabled": true,
+    "javascript.referencesCodeLens.showOnAllFunctions": true,
+    "workbench.statusBar.visible": false,
+    "workbench.startupEditor": "none",
+    "workbench.activityBar.location": "top",
+    "apc.menubar.compact": true,
+    "apc.electron": {
+        "opacity": 0.5,
+        "titleBarStyle": "hiddenInset",
+        "backgroundColor": "rgba(123, 123, 123, 0.2)",
+        "frame": false,
+        "transparent": true,
+        "vibrancy": "ultra-dark",
+        "visualEffectState": "active"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "workbench.colorTheme": "Night Owl (No Italics)",
+    "svg.preview.mode": "img",
+    "vscode_custom_css.imports": [
+        
+    ]
+}
