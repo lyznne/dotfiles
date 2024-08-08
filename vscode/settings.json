@@ -31,7 +31,6 @@
     "diffEditor.renderSideBySide": false,
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-    "workbench.editor.enablePreview": false,
     "javascript.referencesCodeLens.enabled": true,
     "javascript.referencesCodeLens.showOnAllFunctions": true,
     "workbench.statusBar.visible": false,
@@ -53,16 +52,14 @@
     "workbench.colorTheme": "Night Owl (No Italics)",
     "svg.preview.mode": "img",
     "vscode_custom_css.imports": [
-        "./custom-vscode.css",
-        "./vscode-script.js"
+        "file:///home/enos/.config/Code/User/custom-vscode.css",
+        "file:///home/enos/.config/Code/User/vscode-script.js"
     ],
+    "vscode_custom_css.policy": true,
     "editor.copyWithSyntaxHighlighting": false,
     "editor.emptySelectionClipboard": false,
-    "editor.multiCursorModifier": "ctrlCmd",
     "files.trimTrailingWhitespace": true,
     "editor.snippetSuggestions": "top",
-    "editor.detectIndentation": false,
-    "window.nativeFullScreen": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "workbench.editor.showTabs": "none",
@@ -70,12 +67,12 @@
     "editor.guides.indentation": false,
     // Silence the Noise
     "breadcrumbs.enabled": false,
-    "scm.diffDecorations": "none",
+    "scm.diffDecorations": "gutter",
     "editor.hover.delay": 1500,
     "editor.hover.enabled": true,
-    // "editor.selectionHighlight": false,
+    "editor.selectionHighlight": false,
     "editor.overviewRulerBorder": false,
-    "editor.renderLineHighlight": "none",
+    "editor.renderLineHighlight": "gutter",
     "editor.occurrencesHighlight": "off",
     "problems.decorations.enabled": false,
     "editor.renderControlCharacters": false,
@@ -83,14 +80,14 @@
     "editor.gotoLocation.multipleReferences": "goto",
     "editor.gotoLocation.multipleDefinitions": "goto",
     "editor.gotoLocation.multipleDeclarations": "goto",
-    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
     "editor.gotoLocation.multipleImplementations": "goto",
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
     // Typography
     "editor.suggestFontSize": 14,
     "editor.suggestLineHeight": 30,
     "terminal.integrated.lineHeight": 1.5,
-    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontSize": 14,
     "search.useIgnoreFiles": false,
     "search.exclude": {
         // Hide everything in /vendor, except the "laravel" and "livewire" folder.
@@ -164,8 +161,8 @@
     "editor.wordWrap": "wordWrapColumn",
     "editor.fontWeight": "400",
     "editor.inlineSuggest.suppressSuggestions": true,
-    "editor.padding.top": 16,
-    "editor.cursorBlinking": "solid",
+    "editor.padding.top": 18,
+    "editor.cursorBlinking": "expand",
     "editor.stickyScroll.enabled": false,
     "editor.lineHeight": 32,
     "editor.tokenColorCustomizations": {
@@ -182,8 +179,21 @@
                     "comment",
                     "comment.block",
                     "comment.line"
-                ]
+                ],
             }
         ]
+    },
+    "chat.experimental.variables.terminal": true,
+    "eslint.format.enable": true,
+    "html.format.indentInnerHtml": true,
+    "path-intellisense.autoSlashAfterDirectory": true,
+    "path-intellisense.autoTriggerNextSuggestion": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true,
+    "svg.preview.autoShow": true,
+    "svg.minify.inlineStyles": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.removeUnused.ts": "explicit"
     }
 }
