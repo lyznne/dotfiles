@@ -1,14 +1,4 @@
-# 
-#  A R C  - Z E N          Fish         THEME v.0.1           
-# 
 
-#  Author:  ArcZen >_ enos muthiani
-
-#  Date:    23.07.24
-
-
-
-###
 # https://fishshell.com/docs/current/index.html
 # https://github.com/jorgebucaran/cookbook.fish
 
@@ -28,7 +18,7 @@
 #set VIRTUAL_ENV_DISABLE_PROMPT "1"
 
 if not status --is-interactive
-  exit
+    exit
 end
 
 # Load private config
@@ -59,15 +49,15 @@ set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications $fish_user
 
 # Starship prompt
 if command -sq starship
-   starship init fish | source
+    starship init fish | source
 end
 
 # sets tools
-set -x EDITOR nano
-set -x VISUAL nano
-#set -x TERM alacritty
+set -x EDITOR nvim
+set -x VISUAL code
+set -x TERM alacritty
 # Sets the terminal type for proper colors
-set TERM "xterm-256color"
+set TERM xterm-256color
 
 # Suppresses fish's intro message
 set fish_greeting
@@ -80,7 +70,7 @@ set fish_prompt_pwd_dir_length 0
 set -x FZF_DEFAULT_OPTS "--color=16,header:13,info:5,pointer:3,marker:9,spinner:1,prompt:5,fg:7,hl:14,fg+:3,hl+:9 --inline-info --tiebreak=end,length --bind=shift-tab:toggle-down,tab:toggle-up"
 # "bat" as manpager
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -x MANROFFOPT "-c"
+set -x MANROFFOPT -c
 set -g theme_nerd_fonts yes
 
 
@@ -97,29 +87,41 @@ if type -q bat
 end
 
 if command -sq fzf && type -q fzf_configure_bindings
-  fzf_configure_bindings --directory=\ct
+    fzf_configure_bindings --directory=\ct
 end
 
 if not set -q -g fish_user_abbreviations
-  set -gx fish_user_abbreviations
+    set -gx fish_user_abbreviations
 end
 
-#if type -f fortune >/dev/null
+# if type -f fortune >/dev/null
 #  set -l fortune "fortune -a"
 #  if type -f lolcat >/dev/null
 #    set fortune "$fortune | lolcat"
 #  end
 #  eval $fortune
 #  echo
-#end
+# end
 
 if test tree >/dev/null
-    function l1;  tree --dirsfirst -ChFL 1 $argv; end
-    function l2;  tree --dirsfirst -ChFL 2 $argv; end
-    function l3;  tree --dirsfirst -ChFL 3 $argv; end
-    function ll1; tree --dirsfirst -ChFupDaL 1 $argv; end
-    function ll2; tree --dirsfirst -ChFupDaL 2 $argv; end
-    function ll3; tree --dirsfirst -ChFupDaL 3 $argv; end
+    function l1
+        tree --dirsfirst -ChFL 1 $argv
+    end
+    function l2
+        tree --dirsfirst -ChFL 2 $argv
+    end
+    function l3
+        tree --dirsfirst -ChFL 3 $argv
+    end
+    function ll1
+        tree --dirsfirst -ChFupDaL 1 $argv
+    end
+    function ll2
+        tree --dirsfirst -ChFupDaL 2 $argv
+    end
+    function ll3
+        tree --dirsfirst -ChFupDaL 3 $argv
+    end
 end
 
 if type -q direnv
@@ -185,9 +187,9 @@ function ex --description "Extract bundled & compressed files"
             case '*'
                 echo "'$argv[1]' cannot be extracted via ex"
         end
-   else
-       echo "'$argv[1]' is not a valid file"
-   end
+    else
+        echo "'$argv[1]' is not a valid file"
+    end
 end
 
 function less
@@ -219,7 +221,7 @@ alias spsii='sudo pacman -Sii'
 # show the list of packages that need this package - depends mpv as example
 function function_depends
     set search $argv[1]
-    sudo pacman -Sii $search | grep "Required" | sed -e "s/Required By     : //g" | sed -e "s/  /\n/g"
+    sudo pacman -Sii $search | grep Required | sed -e "s/Required By     : //g" | sed -e "s/  /\n/g"
 end
 
 alias depends='function_depends'
@@ -380,7 +382,6 @@ alias vbm="sudo /usr/local/bin/arcolinux-vbox-share"
 alias start-vmware="sudo systemctl enable --now vmtoolsd.service"
 alias vmware-start="sudo systemctl enable --now vmtoolsd.service"
 alias sv="sudo systemctl enable --now vmtoolsd.service"
-
 
 #youtube download
 alias yta-aac="yt-dlp --extract-audio --audio-format aac"
@@ -577,9 +578,9 @@ alias undopush "git push -f origin HEAD^:master"
 
 # reporting tools - install when not installed
 #fastfetch
-#neofetch
+#neofetch | lolcat
 #screenfetch
-#alsi
+#alsi | lolcat
 #paleofetch
 #fetch
 #hfetch
@@ -627,25 +628,24 @@ set fish_color_search_match --background="#60AEFF"
 
 
 
-# --------------------------------------------------------- ENOS RICE ------------------------------------------------------------- #
+# --------------------------------------------------------- A R C - Z E N ------------------------------------------------------------- #
 #                                                                                                                                   #
 # ---------------------------------------------------------    END    ------------------------------------------------------------- #
 
-# script to add and use commands 
+# script to add and use commands
 
 # Source commands from commands.yaml
 function source_commands
     if test -f $HOME/Rice/commands.yaml
         yq -r '.[] | select(.command != null) | .command' $HOME/Rice/commands.yaml | while read -l cmd
-            eval $cmd
         end
     end
 end
 
 # Function to add new commands
 function add_command
-    echo "- command: $argv[1]" >> $HOME/Rice/commands.yaml
-    echo "  description: $argv[2]" >> $HOME/Rice/commands.yaml
+    echo "- command: $argv[1]" >>$HOME/Rice/commands.yaml
+    echo "  description: $argv[2]" >>$HOME/Rice/commands.yaml
     echo "Command added 🚀🚀"
 end
 
@@ -665,11 +665,18 @@ alias super-shit='add_command'
 alias list-shit='show_commands'
 
 # Call source_commands function
-source_commands 
-
+source_commands
 
 # Run neofetch
+# if status is-interactive
+#     and not set -q TMUX
+#     neofetch
+# end
+
 if status is-interactive
     and not set -q TMUX
-    neofetch
-end 
+    neofetch --off --disable cpu gpu memory shell resolution packages kernel  theme icons --color_blocks off --bold off --cpu_temp off
+end
+
+
+alias minifetch=" neofetch --off --disable cpu gpu memory shell resolution packages kernel  theme icons --color_blocks off --bold off --cpu_temp off"
