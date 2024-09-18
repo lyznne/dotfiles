@@ -1,0 +1,51 @@
+# 
+#  A R C  - Z E N          alacritty         THEME v.0.1           
+# 
+
+#  Author:  ArcZen >_ enos muthiani
+
+#  Date:    23.07.24 - 01:02 AM
+
+# import Fonts & Colors 
+import = ["/home/enos/.config/alacritty/arczen-theme.toml", "/home/enos/.config/alacritty/fonts.toml"]
+
+# set reload 
+live_config_reload =  true 
+
+[cursor] 
+unfocused_hollow =  false  
+
+
+[cursor.style] 
+blinking = "On"
+shape = "Underline" 
+
+
+[env] 
+TERM = "alacritty" 
+WINIT_X11_SCALE_FACTOR = "1.0" 
+
+[window] 
+decorations = "full"
+dynamic_title =  true 
+opacity = 0.8
+startup_mode = "windowed" 
+blur = true 
+#transparent_background_colors = true
+
+
+[window.dimensions] 
+columns = 82 
+lines  =  24 
+
+[window.padding] 
+x = 15 
+y = 20 
+
+
+
+[bell] 
+animation = "EaseOut"
+duration =  1 
+
+
