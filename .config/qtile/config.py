@@ -351,7 +351,7 @@ def init_bar_widgets():
             ),
         # Spacer to push the following widgets to the right
         widget.Spacer(),
-        # Term 
+        # Term
         widget.TextBox(
             text=" ",
             fontsize=13,
