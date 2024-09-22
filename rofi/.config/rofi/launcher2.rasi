@@ -1,15 +1,14 @@
 /**
-*   A R C  - Z E N          Rofi         THEME v.0.1 
+*   A R C  - Z E N          Rofi         THEME v.0.1
 *
 *   Author:  ArcZen >_ enos muthiani
-*  
-*  
+*
+*
 *   Date:    23.07.24
 */
 
 
 @import "colors/colors.rasi"
-
 
 /*  Configuration  */
 configuration {
@@ -21,23 +20,23 @@ configuration {
     display-window:             "WINDOW";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
-} 
+}
 
-/* Main Window */ 
+/* Main Window */
 window {
     transparency: "real";
-    location: center; 
-    anchor: center; 
-    fullscreen: false; 
-    width: 808px; 
-    x-offset: 0px; 
-    y-offset: 0px; 
-    enabled:  true; 
-    border-radius: 10px; 
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 808px;
+    x-offset: 0px;
+    y-offset: 0px;
+    enabled:  true;
+    border-radius: 10px;
     cursor: "default";
     background-color: @background;
 
-} 
+}
 
 /* Main Box */
 mainbox {
@@ -52,7 +51,7 @@ mainbox {
 imagebox {
     padding:                     20px;
     background-color:            transparent;
-    background-image:            url("~/.config/qtile/rofi/images/background.jpg", height);
+    background-image:            url("~/.config/rofi/images/background.jpg", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }
@@ -67,7 +66,7 @@ listbox {
 
 dummy {
     background-color:            transparent;
-} 
+}
 
 /*  Inputbar  */
  inputbar {
@@ -95,15 +94,15 @@ entry {
     cursor:                      text;
     placeholder:                 "search ...";
     placeholder-color:           inherit;
-} 
+}
 
-/* Mode Switcher */ 
+/* Mode Switcher */
 mode-switcher{
     enabled:                     true;
     spacing:                     20px;
     background-color:            transparent;
     text-color:                  @foreground;
-} 
+}
 
 button {
     padding:                     15px;
@@ -118,7 +117,7 @@ button selected {
     text-color:                  @foreground;
 }
 
-/* Listview  */ 
+/* Listview  */
 listview {
     enabled:                     true;
     columns:                     1;
@@ -130,14 +129,14 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     10px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
 }
 
-/*  Elements  */ 
+/*  Elements  */
 element {
     enabled:                     true;
     spacing:                     15px;
@@ -185,7 +184,7 @@ element-text {
     horizontal-align:            0.0;
 }
 
-/*  Message */ 
+/*  Message */
 message {
     background-color:            transparent;
 }

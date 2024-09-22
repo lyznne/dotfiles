@@ -70,15 +70,15 @@ super + w
 super + c
     code
 
+# Htop
+super + h
+   urxvt 'htop task manager' -e htop
 
+#logout
+super + l
+    i3lock
 
-#Htop
-#super + h
-#    urxvt 'htop task manager' -e htop
-
-#archlinux-logout
-super + x
-    archlinux-logout
+# lockscreen 
 
 #powermenu
 super + shift + x
@@ -129,7 +129,7 @@ super + shift + Return
 
 #dmenu
 super + d
-    rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/launcher2.rasi
+    rofi -no-config -no-lazy-grab -show drun  -theme ~/.config/rofi/launcher.rasi
 
 #reload sxhkd:
 super + shift + s
