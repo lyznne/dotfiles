@@ -58,9 +58,9 @@ super + F12
 # SUPER + ... KEYS
 #################################################################
 
-#Atom
+#thunar
 super + e
-    atom
+    thunar
 
 #Browser
 super + w
@@ -70,9 +70,7 @@ super + w
 super + c
     code
 
-#killall conky
-super + ctrl + c
-    killall conky
+
 
 #Htop
 #super + h
@@ -84,7 +82,7 @@ super + x
 
 #powermenu
 super + shift + x
-    arcolinux-powermenu
+    powermenu
 
 #Rofi theme selector
 super + r
@@ -125,16 +123,13 @@ super + shift + Return
 
 #Keyboard dependent
 #File-Manager
-#super + shift + KP_Enter
+#super + e
 #	thunar
 
-#dmenu
-super + shift + d
-	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
 #dmenu
 super + d
-    rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/qtile/rofi/launcher2.rasi
+    rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/launcher2.rasi
 
 #reload sxhkd:
 super + shift + s
@@ -157,7 +152,7 @@ ctrl + alt + b
 #Chromium
 ctrl + alt + v
     chromium -no-default-browse
-    
+
 #Firefox
 ctrl + alt + f
      firefox
@@ -166,13 +161,7 @@ ctrl + alt + f
 ctrl + alt + i
      nitrogen
 
-#archlinux-logout
-ctrl + alt + k
-     archlinux-logout
 
-#archlinux-logout
-ctrl + alt + l
-    archlinux-logout
 
 #Pamac-manager
 ctrl + alt + p
@@ -294,22 +283,30 @@ alt + shift + u
 ctrl + shift + Escape
     xfce4-taskmanager
 
-
-#################################################################
-#     SCREENSHOTS
-#################################################################
-
-#Scrot
+# Screenshot
 Print
-    scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+	flameshot full -p /home/enos/Pictures/screenshots
 
-#screeenshooter
+# Full screenshot saved to Pictures directory
+Print
+    maim "$(xdg-user-dir PICTURES)/CachyOS-$(date +%Y-%m-%d_%H-%M-%S).png"
+
+# Select area or window for screenshot
 ctrl + Print
-     xfce4-screenshooter
+    maim -s "$(xdg-user-dir PICTURES)/CachyOS-$(date +%Y-%m-%d_%H-%M-%S).png"
 
-#Gnome-Screenshot
+# Interactive screenshot (if you have gnome-screenshot installed)
 ctrl + shift + Print
-     gnome-screenshot -i
+    gnome-screenshot -i
+
+# Clipboard screenshots
+# Full screenshot to clipboard
+alt + Print
+    maim | xclip -selection clipboard -t image/png
+
+# Select area or window for screenshot to clipboard
+ctrl + alt + Print
+    maim -s | xclip -selection clipboard -t image/png
 
 
 #################################################################
@@ -403,6 +400,3 @@ ctrl + alt + o
 #####################################
 ############################################
 ####################
-# Screenshot
-Print
-	flameshot full -p /home/enos/Pictures/screenshots

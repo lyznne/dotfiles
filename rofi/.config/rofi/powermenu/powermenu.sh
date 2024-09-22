@@ -1,17 +1,17 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 #
-#   A R C  - Z E N          Power Menu         THEME v.0.1 
+#   A R C  - Z E N          Power Menu         THEME v.0.1
 #
 #   Author:  ArcZen >_ enos muthiani
-#  
-#  
+#
+#
 #   Date:    23.07.24
-#   
+#
 
 
 # Current Theme
-dir="$HOME/.config/qtile/powermenu/"
+dir="$HOME/.config/rofi/powermenu/"
 theme='arczen'
 
 
@@ -118,6 +118,3 @@ case ${chosen} in
 		run_cmd --logout
         ;;
 esac
-
-
-
