@@ -79,7 +79,9 @@ super + l
     i3lock
 
 # lockscreen 
-
+alt + shift + x
+    betterlockscreen -l dim
+    
 #powermenu
 super + shift + x
     powermenu
