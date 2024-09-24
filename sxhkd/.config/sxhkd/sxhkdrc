@@ -76,12 +76,12 @@ super + h
 
 #logout
 super + l
-    i3lock
+    betterlockscreen -l blur
 
 # lockscreen 
 alt + shift + x
     betterlockscreen -l dim
-    
+
 #powermenu
 super + shift + x
     powermenu
