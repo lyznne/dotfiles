@@ -683,3 +683,13 @@ end
 
 alias minifetch=" neofetch --off --disable cpu gpu memory shell resolution packages kernel  theme icons --color_blocks off --bold off --cpu_temp off"
 fish_add_path /home/enos/.spicetify
+
+
+#### QEMU
+
+# Prompt
+set -g PS1 '[\u@\h \W]\$ '
+
+# PATH
+set -gx PATH ~/.console-ninja/.bin $PATH
+set -gx LIBVIRT_DEFAULT_URI 'qemu:///system'
