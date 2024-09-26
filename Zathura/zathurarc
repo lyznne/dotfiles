@@ -1,3 +1,18 @@
-set default-bg #282828
-set default-fg #ffffff
-set selection-clipboard clipboard
+# 
+#  A R C  - Z E N          Zathura         THEME v.0.1           
+# 
+
+#  Author:  ArcZen >_ enos muthiani
+
+#  Date:    26.09.24 - 01:02 AM
+
+
+
+set default-bg      "#020D18"    # Rich Black
+set default-fg      "#F9EBC6"    # Dutch White
+set statusbar-bg    "#020D19"    # Rich Black 2
+set statusbar-fg    "#F9EBC6"    # Dutch White
+set completion-bg   "#0B1D28"    # Rich Black 3
+set completion-fg   "#F9EBC6"    # Dutch White
+set highlight-color "#BD2606"    # Engineering Orange 
+set font             "0xPronto Mono Nerd Font 11"
