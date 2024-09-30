@@ -1,16 +1,16 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 
 #
-#   A R C  - Z E N          Rofi - Favorite Apps         THEME v.0.1 
+#   A R C  - Z E N          Rofi - Favorite Apps         THEME v.0.1
 #
 #   Author:  ArcZen >_ enos muthiani
-#  
-#  
+#
+#
 #   Date:    23.07.24
-#   
+#
 
- Import Current Theme
+# Import Current Theme
 source "$HOME"/.config/rofi/applets/shared/theme.bash
 theme="$type/$style"
 
@@ -18,18 +18,13 @@ theme="$type/$style"
 prompt='Applications'
 mesg="Installed Packages : `pacman -Q | wc -l` (pacman)"
 
-if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
-	list_col='1'
-	list_row='6'
-elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
-	list_col='6'
-	list_row='1'
-fi
+	list_col=6
+	list_row=1
 
 # CMDs (add your apps here)
 term_cmd='alacritty'
 file_cmd='thunar'
-text_cmd='geany'
+text_cmd='zeditor'
 web_cmd='firefox'
 music_cmd='alacritty -e ncmpcpp'
 setting_cmd='xfce4-settings-manager'

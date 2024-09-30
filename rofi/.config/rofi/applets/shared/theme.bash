@@ -1,4 +1,4 @@
 ## Current Theme
 
-type="$HOME/.config/qtile/rofi/applets/arczen"
+type="$HOME/.config/rofi/applets/arczen"
 style='colors.rasi'

@@ -21,6 +21,7 @@ lastlogin="`last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7`"
 uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
+
 # Options
 hibernate=''
 shutdown=''
@@ -31,15 +32,23 @@ logout=''
 yes=''
 no=''
 
-
-
-# Rofi CMD
+# rofi CMD
 rofi_cmd() {
-	rofi -dmenu \
-		-p " $USER@$host" \
-		-mesg " Last Login: $lastlogin |  Uptime: $uptime" \
-		-theme ${dir}/${theme}.rasi
+    rofi -dmenu \
+        -p " $USER@$host" \
+        -mesg "🕒 Last Login: $lastlogin | ⏳ Uptime: $uptime" \
+        -theme ${dir}/${theme}.rasi
 }
+
+
+
+# # Rofi CMD
+# rofi_cmd() {
+# 	rofi -dmenu \
+# 		-p " $USER@$host" \
+# 		-mesg " Last Login: $lastlogin |  Uptime: $uptime" \
+# 		-theme ${dir}/${theme}.rasi
+# }
 
 # Confirmation CMD
 confirm_cmd() {

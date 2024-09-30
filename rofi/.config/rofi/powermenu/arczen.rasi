@@ -1,32 +1,38 @@
 
 /**
-*   A R C  - Z E N          Power Menu style         THEME v.0.1 
+*   A R C  - Z E N          Power Menu style         THEME v.0.1
 *
 *   Author:  ArcZen >_ enos muthiani
-*  
-*  
+*
+*
 *   Date:    23.07.24
 */
 
 
-/* configuration   */ 
+
+
+/* configuration   */
 configuration {
     show-icons:                 false;
 }
+
+
 * {
-    font:                        "JetBrains Mono Nerd Font 10";
-    background:                  #11092D;
-    background-alt:              #281657;
-    foreground:                  #FFFFFF;
-    selected:                    #DF5296;
-    active:                      #6E77FF;
-    urgent:                      #8E3596;
+    font:                        "0xProto Nerd Font Mono 10";
+    background:                  rgba(2, 13, 24, 1);
+    background-alt:              rgba(10, 20, 40, 0.95);
+    foreground:                  rgba(235, 235, 198, 0.95);
+    selected:                    rgba(189, 38, 6, 0.85);
+    active:                      rgba(240, 235, 198, 0.95);
+    urgent:                      rgba(189, 38, 6, 0.95);
+
 }
+
 /*
 USE_BUTTONS=YES
 */
 
-/*   Main Box  */ 
+/*   Main Box  */
 mainbox {
     enabled:                     true;
     spacing:                     0px;
@@ -43,9 +49,9 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     0px;
-    padding:                     100px 80px;
+    padding:                     70px 50px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/a.png", width);
+    background-image:            url("~/.config/rofi/images/background.jpg", width);
     children:                    [ "textbox-prompt-colon", "dummy","prompt"];
 }
 
@@ -82,7 +88,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     15px;
     margin:                      15px;
     background-color:            transparent;

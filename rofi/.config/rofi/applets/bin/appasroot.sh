@@ -1,16 +1,16 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 
 #
-#   A R C  - Z E N          Rofi - App as root         THEME v.0.1 
+#   A R C  - Z E N          Rofi - App as root         THEME v.0.1
 #
 #   Author:  ArcZen >_ enos muthiani
-#  
-#  
+#
+#
 #   Date:    23.07.24
-#   
+#
 
-source "$HOME"/.config/rofi/applets/shared/theme.bash 
+source "$HOME"/.config/rofi/applets/shared/theme.bash
 theme="$type/$style"
 
 
@@ -18,23 +18,9 @@ theme="$type/$style"
 prompt='Applications'
 mesg='Run App as Root'
 
-if [[ "$theme" == *'type-1'* ]]; then
 	list_col='1'
-	list_row='5'
-	win_width='400px'
-elif [[ "$theme" == *'type-3'* ]]; then
-	list_col='1'
-	list_row='5'
+	list_row='6'
 	win_width='120px'
-elif [[ "$theme" == *'type-5'* ]]; then
-	list_col='1'
-	list_row='5'
-	win_width='520px'
-elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
-	list_col='5'
-	list_row='1'
-	win_width='670px'
-fi
 
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`

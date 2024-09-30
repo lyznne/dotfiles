@@ -78,13 +78,13 @@ super + h
 super + l
     betterlockscreen -l blur
 
-# lockscreen 
+# lockscreen
 alt + shift + x
     betterlockscreen -l dim
 
 #powermenu
 super + shift + x
-    powermenu
+    ~/.config/rofi/powermenu/powermenu.sh 
 
 #Rofi theme selector
 super + r

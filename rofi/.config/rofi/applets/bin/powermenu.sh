@@ -1,14 +1,14 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 
 #
-#   A R C  - Z E N          Rofi - Power Menu         THEME v.0.1 
+#   A R C  - Z E N          Rofi - Power Menu         THEME v.0.1
 #
 #   Author:  ArcZen >_ enos muthiani
-#  
-#  
+#
+#
 #   Date:    23.07.24
-#   
+#
 
 
 
@@ -85,13 +85,13 @@ confirm_exit() {
 }
 
 # Confirm and execute
-confirm_run () {	
+confirm_run () {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
         ${1} && ${2} && ${3}
     else
         exit
-    fi	
+    fi
 }
 
 # Execute Command

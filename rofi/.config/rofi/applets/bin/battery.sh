@@ -1,14 +1,14 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 
 #
-#   A R C  - Z E N          Rofi - Battery         THEME v.0.1 
+#   A R C  - Z E N          Rofi - Battery         THEME v.0.1
 #
 #   Author:  ArcZen >_ enos muthiani
-#  
-#  
+#
+#
 #   Date:    23.07.24
-# 
+#
 
 # Import Current Theme
 source "$HOME"/.config/rofi/applets/shared/theme.bash
@@ -28,23 +28,9 @@ fi
 prompt="$status"
 mesg="${battery}: ${percentage}%,${time}"
 
-if [[ "$theme" == *'type-1'* ]]; then
 	list_col='1'
 	list_row='4'
-	win_width='400px'
-elif [[ "$theme" == *'type-3'* ]]; then
-	list_col='1'
-	list_row='4'
-	win_width='120px'
-elif [[ "$theme" == *'type-5'* ]]; then
-	list_col='1'
-	list_row='4'
-	win_width='500px'
-elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
-	list_col='4'
-	list_row='1'
-	win_width='550px'
-fi
+	win_width='100px'
 
 # Charging Status
 active=""
