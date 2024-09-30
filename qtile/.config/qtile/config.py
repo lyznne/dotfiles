@@ -268,6 +268,11 @@ keys = [
         lazy.spawn("brightnessctl s 10%-"),
         desc="brightness Down",
     ),
+    # P O W E R M E N U
+    key([mod], "p", lazy.spawn(
+        os.path.expanduser("~/.config/rofi/powermenu/powermenu.sh"),
+        desc="Is to Display powermenu",
+    ))
 ]
 
 
@@ -561,7 +566,7 @@ screens = [
                     background="#046f5f",
                 ),
                 widget.Clock(
-                    format="%d/%m/%y ",  
+                    format="%d/%m/%y ",
                     background="#046f5f",
                     font=MAIN_FONT,
                     fontsize=15,
