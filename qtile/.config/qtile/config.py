@@ -1,13 +1,20 @@
-#  _______  _        _______  _______             _        _______  ______   _______
-# (  ____ \( (    /|(  ___  )(  ____ \           ( \      (  ___  )(  ___ \ (  ____ \
-# | (    \/|  \  ( || (   ) || (    \/           | (      | (   ) || (   ) )| (    \/
-# | (__    |   \ | || |   | || (_____            | |      | (___) || (__/ / | (_____
-# |  __)   | (\ \) || |   | |(_____  )     -     | |      |  ___  ||  __ (  (_____  )
-# | (      | | \   || |   | |      ) |           | |      | (   ) || (  \ \       ) |
-# | (____/\| )  \  || (___) |/\____) |           | (____/\| )   ( || )___) )/\____) |
-# (_______/|/    )_)(_______)\_______)           (_______/|/     \||/ \___/ \_______)
 #
-#                                                                _> enos muthiani (enm)
+#  A R C  - Z E N          Qtile        config v.1.0
+#
+#   Author:  ArcZen >_ enos muthiani
+#
+#
+#   Date:    28.07.24
+#
+
+
+#  █████╗     ██████╗      ██████╗              ███████╗    ███████╗    ███╗   ██╗
+# ██╔══██╗    ██╔══██╗    ██╔════╝    ▄ ██╗▄    ╚══███╔╝    ██╔════╝    ████╗  ██║
+# ███████║    ██████╔╝    ██║          ████╗      ███╔╝     █████╗      ██╔██╗ ██║
+# ██╔══██║    ██╔══██╗    ██║         ▀╚██╔▀     ███╔╝      ██╔══╝      ██║╚██╗██║
+# ██║  ██║    ██║  ██║    ╚██████╗      ╚═╝     ███████╗    ███████╗    ██║ ╚████║
+# ╚═╝  ╚═╝    ╚═╝  ╚═╝     ╚═════╝              ╚══════╝    ╚══════╝    ╚═╝  ╚═══╝
+
 
 import os
 import re
@@ -27,12 +34,18 @@ from typing import List, Union
 
 from libqtile import hook
 
+# Import theme `arczen`
+from theme.arczen import init_colors
+
+
 # mod4 or mod = super key
 mod = "mod4"
 mod1 = "alt"
 mod2 = "control"
+
 home: str = os.path.expanduser("~")
-terminal: str | None = guess_terminal()
+terminal: str = guess_terminal() or "Alacritty"
+browser: str = "firefox"
 
 
 # D E F  - COLORS
@@ -44,7 +57,6 @@ MAIN_FONT: str = "0xProto Nerd Font Mono"
 
 
 # Sticky windows
-
 sticky_windows = []
 
 
@@ -269,10 +281,12 @@ keys = [
         desc="brightness Down",
     ),
     # P O W E R M E N U
-    key([mod], "p", lazy.spawn(
-        os.path.expanduser("~/.config/rofi/powermenu/powermenu.sh"),
+    Key(
+        [mod],
+        "p",
+        lazy.spawn(os.path.expanduser("~/.config/rofi/powermenu/powermenu.sh")),
         desc="Is to Display powermenu",
-    ))
+    ),
 ]
 
 
@@ -282,7 +296,7 @@ def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
     if i != 0:
         group = qtile.screens[i - 1].group.name
         qtile.current_window.togroup(group, switch_group=switch_group)
-        if switch_screen == True:
+        if switch_screen is True:
             qtile.cmd_to_screen(i - 1)
 
 
@@ -291,25 +305,23 @@ def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
     if i + 1 != len(qtile.screens):
         group = qtile.screens[i + 1].group.name
         qtile.current_window.togroup(group, switch_group=switch_group)
-        if switch_screen == True:
+        if switch_screen is True:
             qtile.cmd_to_screen(i + 1)
 
 
-keys.extend(
-    [
-        # MOVE WINDOW TO NEXT SCREEN
-        Key(
-            [mod, "shift"],
-            "Right",
-            lazy.function(window_to_next_screen, switch_screen=True),
-        ),
-        Key(
-            [mod, "shift"],
-            "Left",
-            lazy.function(window_to_previous_screen, switch_screen=True),
-        ),
-    ]
-)
+keys.extend([
+    # MOVE WINDOW TO NEXT SCREEN
+    Key(
+        [mod, "shift"],
+        "Right",
+        lazy.function(window_to_next_screen, switch_screen=True),
+    ),
+    Key(
+        [mod, "shift"],
+        "Left",
+        lazy.function(window_to_previous_screen, switch_screen=True),
+    ),
+])
 
 # █▀▀ █▀█ █▀█ █░█ █▀█ █▀
 # █▄█ █▀▄ █▄█ █▄█ █▀▀ ▄█
@@ -317,28 +329,29 @@ keys.extend(
 # FOR QWERTY KEYBOARDS
 group_names: List[str] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
+# groups = [
+#     Group(f"{i + 1}", label="󰏃") for i in range(9)
+# ]  
 groups = [
-    Group(f"{i+1}", label="󰏃") for i in range(9)
-]  # Be careful modifying this, otherwise qtile config will break
-
+    Group(f"{i + 1}", label="⬡")
+    for i in range(9)
+]
 
 for i in groups:
-    keys.extend(
-        [
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-        ]
-    )
+    keys.extend([
+        Key(
+            [mod],
+            i.name,
+            lazy.group[i.name].toscreen(),
+            desc="Switch to group {}".format(i.name),
+        ),
+        Key(
+            [mod, "shift"],
+            i.name,
+            lazy.window.togroup(i.name, switch_group=True),
+            desc="Switch to & move focused window to group {}".format(i.name),
+        ),
+    ])
 
 
 def init_layout_theme():
@@ -367,9 +380,14 @@ layouts = [
     layout.Max(**layout_theme),
 ]
 
+# C O L O R S
+colors = init_colors()
 
+
+# W I D G E T S
+# -------------------------- Default Widgets Conf ---------------------------------------- #
 def init_widgets_defaults() -> dict[str, str | int | List[str]]:
-    return dict(font="noto sans", fontsize=12, padding=4)
+    return dict(font=MAIN_FONT, fontsize=12, padding=3, background="#033C4B")
 
 
 widget_defaults = init_widgets_defaults()
@@ -396,7 +414,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(
-                    length=18,
+                    length=14,
                     background="#033C4B",
                 ),
                 widget.Image(
@@ -411,7 +429,7 @@ screens = [
                     fontsize=16,
                     borderwidth=0,
                     highlight_method="block",
-                    active="#56D9C7",  # Active workspaces circle color
+                    active="#56D9C7",
                     block_highlight_text_color="#00F076",  # Current workspace circle color
                     highlight_color="#4B427E",
                     inactive="#052A25",  # Empty workspace circle
@@ -434,8 +452,8 @@ screens = [
                 widget.CurrentLayoutIcon(
                     custom_icon_paths=["~/.config/qtile/Assets/layout"],
                     background="#046F5F",
-                    padding=4,
-                    scale=0.50,
+                    padding=6,
+                    scale=0.55,
                 ),
                 widget.CurrentLayout(
                     background="#046F5F",
@@ -454,7 +472,7 @@ screens = [
                     format="{name}",
                     font=MAIN_FONT,
                     fontsize=14,
-                    empty_group_string="Desktop",
+                    empty_group_string="A R C * Z E N",
                     padding=0,
                 ),
                 widget.Image(
@@ -464,9 +482,14 @@ screens = [
                     filename="/home/enos/.config/qtile/Assets/1.png",
                     background="#52548D",
                 ),
+                widget.Image(
+                    filename="/home/enos/.config/qtile/Assets/cpu.png",
+                    background="#046F5F",
+                    scale=0.012,
+                ),
                 widget.CPU(
                     font=MAIN_FONT,
-                    format="CPU:({load_percent:.1f}%/{freq_current}GHz)",
+                    format=" {load_percent:.1f}%/{freq_current}GHz",
                     fontsize=15,
                     margin=0,
                     padding=0,
@@ -498,7 +521,7 @@ screens = [
                 ),
                 # RAM
                 widget.Image(
-                    filename="~/.config/qtile/Assets/misc/ram.svg",
+                    filename="/home/enos/.config/qtile/Assets/misc/ram.png",
                     background="#046F5F",
                 ),
                 widget.Memory(
@@ -508,17 +531,20 @@ screens = [
                     padding=0,
                     background="#046F5F",
                     mouse_callbacks={"Button1": open_btop},
+                    foreground="#ff7f17",
                 ),
                 widget.Spacer(
                     length=6,
                     background="#046f5f",
                 ),
-                widget.Image(
-                    filename="~/.config/qtile/Assets/Bar-Icons/volume.svg",
+                # volume
+                widget.Volume(
+                    fontsize=13,
+                    theme_path="/home/enos/.config/qtile/Assets/Volume/",
+                    emoji=True,
                     background="#046F5F",
-                    margin_y=3,
                     scale=True,
-                    mouse_callbacks={"Button1": open_btop},
+                    margin_y=3,
                 ),
                 widget.Spacer(
                     length=4,
@@ -529,6 +555,7 @@ screens = [
                     fontsize=15,
                     padding=0,
                     background="#046F5F",
+                    foreground="#C9D1FF1A",
                 ),
                 widget.Image(
                     filename="~/.config/qtile/Assets/5.png",
@@ -539,7 +566,8 @@ screens = [
                 ),
                 # battery
                 widget.BatteryIcon(
-                    theme_path=["~/.config/qtile/Assets/battery"],
+                    emoji=True,
+                    theme_path="/home/enos/.config/qtile/Assets/Battery/",
                     update_interval=60,
                 ),
                 widget.Battery(
@@ -556,7 +584,7 @@ screens = [
                     background="#046f5f",
                 ),
                 widget.Image(
-                    filename="~/.config/qtile/Assets/Bar-Icons/calendar.svg",
+                    filename="/home/enos/.config/qtile/Assets/Bar-Icons/calendar.png",
                     background="#046F5F",
                     margin_y=3,
                     scale=True,
@@ -573,7 +601,7 @@ screens = [
                     padding=0,
                 ),
                 widget.Image(
-                    filename="~/.config/qtile/Assets/misc/clock.svg",
+                    filename="/home/enos/.config/qtile/Assets/misc/clock.png",
                     background="#046F5F",
                     margin_y=3,
                     margin_x=5,
