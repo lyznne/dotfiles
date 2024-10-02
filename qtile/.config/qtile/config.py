@@ -331,11 +331,10 @@ group_names: List[str] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 # groups = [
 #     Group(f"{i + 1}", label="󰏃") for i in range(9)
-# ]  
-groups = [
-    Group(f"{i + 1}", label="⬡")
-    for i in range(9)
-]
+# ]
+# groups = [Group(f"{i + 1}", label="⬡") for i in range(9)]
+
+groups = [Group(f"{i + 1}", label="") for i in range(8)]
 
 for i in groups:
     keys.extend([
@@ -425,20 +424,21 @@ screens = [
                 widget.Image(
                     filename="~/.config/qtile/Assets/6.png",
                 ),
+
                 widget.GroupBox(
                     fontsize=16,
                     borderwidth=0,
-                    highlight_method="block",
-                    active="#56D9C7",
-                    block_highlight_text_color="#00F076",  # Current workspace circle color
-                    highlight_color="#4B427E",
-                    inactive="#052A25",  # Empty workspace circle
-                    foreground="#046F5F",
+                    highlight_method="text",
+                    active="#C274B1C2",
+                    block_highlight_text_color="#BD2606",
+                    highlight_color="#BD2606",
+                    inactive="#C9D1FF12",
+                    foreground="#C9D1FF19",
                     background="#046F5F",
-                    this_current_screen_border="#00361A",  # Circle background color
-                    this_screen_border="#52548D",
-                    other_current_screen_border="#52548D",
-                    other_screen_border="#52548D",
+                    this_current_screen_border="#BD2606",
+                    this_screen_border="#BD2606",
+                    other_current_screen_border="0A427F52",
+                    other_screen_border="0A427F52",
                     urgent_border="#52548D",
                     rounded=True,
                     disable_drag=True,
@@ -452,14 +452,15 @@ screens = [
                 widget.CurrentLayoutIcon(
                     custom_icon_paths=["~/.config/qtile/Assets/layout"],
                     background="#046F5F",
-                    padding=6,
+                    padding=4,
                     scale=0.55,
                 ),
                 widget.CurrentLayout(
                     background="#046F5F",
+                    foreground="#C9D1FF",
                     font=MAIN_FONT,
                     fontsize=15,
-                    padding=0,
+                    padding=2,
                 ),
                 widget.Image(
                     filename="~/.config/qtile/Assets/5.png",
@@ -469,10 +470,11 @@ screens = [
                 ),
                 widget.WindowName(
                     background="#046F5F",
-                    format="{name}",
+                    foreground="#C9D1FF",
+                    format=" {name}",
                     font=MAIN_FONT,
                     fontsize=14,
-                    empty_group_string="A R C * Z E N",
+                    empty_group_string="  A R C * Z E N",
                     padding=0,
                 ),
                 widget.Image(
@@ -485,15 +487,16 @@ screens = [
                 widget.Image(
                     filename="/home/enos/.config/qtile/Assets/cpu.png",
                     background="#046F5F",
-                    scale=0.012,
+                    margin_y=4,
                 ),
                 widget.CPU(
                     font=MAIN_FONT,
-                    format=" {load_percent:.1f}%/{freq_current}GHz",
+                    format=" {load_percent:.1f}%  {freq_current}GHz",
                     fontsize=15,
                     margin=0,
                     padding=0,
                     background="#046F5F",
+                    foreground="#C9D1FF1A",
                     mouse_callbacks={"Button1": open_btop},
                 ),
                 widget.Image(
@@ -507,6 +510,7 @@ screens = [
                     background="#046F5F",
                     icon_size=24,
                     padding=3,
+                    foreground="#C9D1FF",
                 ),
                 widget.Image(
                     filename="~/.config/qtile/Assets/5.png",
@@ -525,7 +529,7 @@ screens = [
                     background="#046F5F",
                 ),
                 widget.Memory(
-                    format="{MemUsed:.0f}MB/{MemTotal:.0f}MB",
+                    format="{MemUsed:.0f}MB  {MemTotal:.0f}MB",
                     font=MAIN_FONT,
                     fontsize=15,
                     padding=0,
@@ -539,15 +543,12 @@ screens = [
                 ),
                 # volume
                 widget.Volume(
-                    fontsize=13,
                     theme_path="/home/enos/.config/qtile/Assets/Volume/",
                     emoji=True,
                     background="#046F5F",
-                    scale=True,
-                    margin_y=3,
                 ),
                 widget.Spacer(
-                    length=4,
+                    length=3,
                     background="#046f5f",
                 ),
                 widget.PulseVolume(
@@ -566,14 +567,14 @@ screens = [
                 ),
                 # battery
                 widget.BatteryIcon(
-                    emoji=True,
                     theme_path="/home/enos/.config/qtile/Assets/Battery/",
                     update_interval=60,
+                    background="#046F5F",
                 ),
                 widget.Battery(
-                    fontsize=13,
+                    fontsize=15,
                     background="#046F5F",
-                    foreground="#E5B9C6",
+                    foreground="#D0A1D4",
                     format="{percent:2.0%}",
                     low_percentage=0.2,
                     low_foreground="#DC143C",
@@ -594,11 +595,12 @@ screens = [
                     background="#046f5f",
                 ),
                 widget.Clock(
-                    format="%d/%m/%y ",
+                    format="%d-%m-%y ",
                     background="#046f5f",
                     font=MAIN_FONT,
                     fontsize=15,
                     padding=0,
+                    foreground="#B1C6D8",
                 ),
                 widget.Image(
                     filename="/home/enos/.config/qtile/Assets/misc/clock.png",
@@ -610,7 +612,7 @@ screens = [
                 widget.Clock(
                     format="%H:%M",
                     background="#046f5f",
-                    foreground="#e9f4ff",
+                    foreground="#C9D1FF1A",
                     font=MAIN_FONT,
                     fontsize=15,
                     padding=0,
