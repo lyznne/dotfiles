@@ -332,9 +332,9 @@ group_names: List[str] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 # groups = [
 #     Group(f"{i + 1}", label="󰏃") for i in range(9)
 # ]
-# groups = [Group(f"{i + 1}", label="⬡") for i in range(9)]
+groups = [Group(f"{i + 1}", label="⬡") for i in range(9)]
 
-groups = [Group(f"{i + 1}", label="") for i in range(8)]
+# groups = [Group(f"{i + 1}", label="") for i in range(8)]
 
 for i in groups:
     keys.extend([
