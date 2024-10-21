@@ -634,11 +634,11 @@ set fish_color_search_match --background="#60AEFF"
 #                                                                                                                                   #
 # ---------------------------------------------------------    END    ------------------------------------------------------------- #
 
-# Source commands from commands.yaml 
+# Source commands from commands.yaml
 function source_commands
     if test -f $HOME/Rice/commands.yaml
         yq -r '.[] | select(.command != null) | .command' $HOME/Rice/commands.yaml | while read -l cmd
-            # echo $cmd  
+            # echo $cmd
         end
     end
 end
@@ -693,3 +693,4 @@ set -g PS1 '[\u@\h \W]\$ '
 # PATH
 set -gx PATH ~/.console-ninja/.bin $PATH
 set -gx LIBVIRT_DEFAULT_URI 'qemu:///system'
+set -x GTK_THEME Lavanda-Sea-Dark
