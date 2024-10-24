@@ -1,16 +1,3 @@
-# 
-#  A R C  - Z E N          alacritty         THEME v.0.1           
-# 
-
-#  Author:  ArcZen >_ enos muthiani
-
-#  Date:    23.07.24 - 01:02 AM
-
-# import Fonts & Colors 
-import = ["/home/enos/.config/alacritty/arczen-theme.toml", "/home/enos/.config/alacritty/fonts.toml"]
-
-# set reload 
-live_config_reload =  true 
 
 [cursor] 
 unfocused_hollow =  false  
@@ -47,5 +34,20 @@ y = 20
 [bell] 
 animation = "EaseOut"
 duration =  1 
+
+[general]
+
+# set reload 
+live_config_reload =  true 
+# 
+#  A R C  - Z E N          alacritty         THEME v.0.1           
+# 
+
+#  Author:  ArcZen >_ enos muthiani
+
+#  Date:    23.07.24 - 01:02 AM
+
+# import Fonts & Colors 
+import = ["/home/enos/.config/alacritty/arczen-theme.toml", "/home/enos/.config/alacritty/fonts.toml"]
 
 
