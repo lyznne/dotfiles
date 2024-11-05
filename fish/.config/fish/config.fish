@@ -694,3 +694,4 @@ set -g PS1 '[\u@\h \W]\$ '
 set -gx PATH ~/.console-ninja/.bin $PATH
 set -gx LIBVIRT_DEFAULT_URI 'qemu:///system'
 set -x GTK_THEME Lavanda-Sea-Dark
+set -Ux fish_user_paths $fish_user_paths ~/.config/composer/vendor/bin

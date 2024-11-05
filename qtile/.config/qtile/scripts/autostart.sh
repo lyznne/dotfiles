@@ -9,8 +9,8 @@ function run {
 
 # Set Wallapapers
 # feh --bg-fill $HOME/.config/qtile/Wallpaper/Skyscraper.png &
-feh  --bg-fill $HOME/Pictures/wallpapers/4k-Fiery-Meteor-Shower-4K-Wallpaper.jpg &
-
+# feh  --bg-fill $HOME/Pictures/wallpapers/4k-Fiery-Meteor-Shower-4K-Wallpaper.jpg &   
+feh --bg-fill $HOME/Pictures/wallpapers/Imgur.png &
 
 # start <> fot cheatsheet.
 
