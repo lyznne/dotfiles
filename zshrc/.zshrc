@@ -12,3 +12,57 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 
 PATH=~/.console-ninja/.bin:$PATH
 export GTK_THEME=Lavanda-Sea-Dark
+
+
+
+
+# --------------------------------------------------------- A R C - Z E N ------------------------------------------------------------- #
+#                                                                                                                                   #
+# ---------------------------------------------------------    END    ------------------------------------------------------------- #
+
+# Source commands from commands.yaml
+source_commands() {
+    if [[ -f $HOME/Rice/commands.yaml ]]; then
+        yq -r '.[] | select(.command != null) | .command' $HOME/Rice/commands.yaml | while read -r cmd; do
+            # echo $cmd
+        done
+    fi
+}
+
+# Function to add new commands
+add_command() {
+    echo "- command: $1" >>$HOME/Rice/commands.yaml
+    echo "  description: $2" >>$HOME/Rice/commands.yaml
+    echo "Command added 🚀🚀"
+}
+
+# Function to display commands using bat
+show_commands() {
+    if command -v bat &>/dev/null; then
+        bat $HOME/Rice/commands.yaml
+    else
+        cat $HOME/Rice/commands.yaml
+    fi
+}
+
+# Aliases for adding and displaying commands
+alias super-shit='add_command'
+alias list-shit='show_commands'
+
+# Run neofetch if interactive shell and not in tmux
+if [[ $- == *i* && -z $TMUX ]]; then
+    neofetch --off --disable cpu gpu memory shell resolution packages kernel theme icons --color_blocks off --bold off --cpu_temp off
+fi
+
+# Minifetch alias
+alias minifetch="neofetch --off --disable cpu gpu memory shell resolution packages kernel theme icons --color_blocks off --bold off --cpu_temp off"
+
+# Set PATH
+export PATH="$HOME/.console-ninja/.bin:$PATH"
+export LIBVIRT_DEFAULT_URI='qemu:///system'
+export GTK_THEME="Lavanda-Sea-Dark"
+export fish_user_paths="$fish_user_paths:$HOME/.config/composer/vendor/bin"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+# Call source_commands function
+source_commands

@@ -1,22 +1,20 @@
 #!/bin/bash
 
 function run {
-  if ! pgrep -x $(basename $1 | head -c 15) 1>/dev/null;
-  then
-    $@&
+  if ! pgrep -x $(basename $1 | head -c 15) 1>/dev/null; then
+    $@ &
   fi
 }
 
 # Set Wallapapers
 # feh --bg-fill $HOME/.config/qtile/Wallpaper/Skyscraper.png &
-# feh  --bg-fill $HOME/Pictures/wallpapers/4k-Fiery-Meteor-Shower-4K-Wallpaper.jpg &   
-feh --bg-fill $HOME/Pictures/wallpapers/Imgur.png &
+# feh  --bg-fill $HOME/Pictures/wallpapers/4k-Fiery-Meteor-Shower-4K-Wallpaper.jpg &
+feh --bg-fill $HOME/Pictures/wallpapers/wall.jpeg &
 
 # start <> fot cheatsheet.
 
 #start sxhkd to replace Qtile native key-bindings
 run sxhkd -c ~/.config/sxhkd/sxhkdrc
-
 
 #starting utility applications at boot time
 run nm-applet &
