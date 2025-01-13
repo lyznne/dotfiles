@@ -628,6 +628,9 @@ set fish_pager_color_prefix white --bold --underline
 set fish_pager_color_progress brwhite --background=cyan
 set fish_color_search_match --background="#60AEFF"
 
+# Flutter path
+fish_add_path -g -p ~/development/flutter/bin
+set -Ux PATH $PATH ~/flutter/flutter/bin
 
 
 # --------------------------------------------------------- A R C - Z E N ------------------------------------------------------------- #
@@ -695,3 +698,12 @@ set -gx PATH ~/.console-ninja/.bin $PATH
 set -gx LIBVIRT_DEFAULT_URI 'qemu:///system'
 set -x GTK_THEME Lavanda-Sea-Dark
 set -Ux fish_user_paths $fish_user_paths ~/.config/composer/vendor/bin
+
+
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
+# Load pyenv automatically by appending
+# the following to ~/.config/fish/config.fish:
+
+pyenv init - fish | source

@@ -5,6 +5,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+
+# Run neofetch if interactive shell and not in tmux
+if [[ $- == *i* && -z $TMUX ]]; then
+    neofetch --off --disable cpu gpu memory shell resolution packages kernel theme icons --color_blocks off --bold off --cpu_temp off
+fi
+
+# Minifetch alias
+alias minifetch="neofetch --off --disable cpu gpu memory shell resolution packages kernel theme icons --color_blocks off --bold off --cpu_temp off"
+
+
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -14,6 +25,7 @@ PATH=~/.console-ninja/.bin:$PATH
 export GTK_THEME=Lavanda-Sea-Dark
 
 
+export PATH="$PATH:$HOME/flutter/flutter/bin"
 
 
 # --------------------------------------------------------- A R C - Z E N ------------------------------------------------------------- #
@@ -49,13 +61,6 @@ show_commands() {
 alias super-shit='add_command'
 alias list-shit='show_commands'
 
-# Run neofetch if interactive shell and not in tmux
-if [[ $- == *i* && -z $TMUX ]]; then
-    neofetch --off --disable cpu gpu memory shell resolution packages kernel theme icons --color_blocks off --bold off --cpu_temp off
-fi
-
-# Minifetch alias
-alias minifetch="neofetch --off --disable cpu gpu memory shell resolution packages kernel theme icons --color_blocks off --bold off --cpu_temp off"
 
 # Set PATH
 export PATH="$HOME/.console-ninja/.bin:$PATH"
@@ -66,3 +71,4 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 # Call source_commands function
 source_commands
+export PATH="~/development/flutter/bin:$PATH"
