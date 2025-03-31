@@ -182,9 +182,14 @@ style = "fg:#cba6f7 bg:#3E3D4F"
 format = '[ $symbol ($version )]($style)'
 
 [python]
-symbol = ""
+symbol = ""
 style = "fg:#cba6f7 bg:#3E3D4F"
-format = '[ $symbol ($version )]($style)'
+format = '[ $symbol ($version )${env_prefix}${virtualenv}]($style)'
+virtualenv_symbol = "🐍 "
+detect_extensions = ["py"]
+python_binary = ["python", "python3", "python2"]
+detect_files = ["requirements.txt", "pyproject.toml", "Pipfile", ".python-version", "setup.py"]
+disabled = false
 
 [ruby]
 symbol = ""
